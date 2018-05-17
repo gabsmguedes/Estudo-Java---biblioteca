@@ -7,70 +7,50 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.biblioteca.database.DataBase;
-import br.com.biblioteca.model.Editora;
+import br.com.biblioteca.model.Autor;
 
-public class EditoraDAO {
+public class AutorDAO {
 
-	private Connection connection = null;
+	Connection connection = null;
 
-	public EditoraDAO(Connection connection) {
+	public AutorDAO(Connection connection) {
 		this.connection = connection;
 	}
 
-	public List<Editora> Select() throws SQLException {
+	public List<Autor> Select() throws SQLException {
 
-		// Connection connection = DataBase.getConexao();
-		List<Editora> editoras = new ArrayList<>();
-		String sql = "select id, nome from editora;";
+		List<Autor> autores = new ArrayList<>();
+		String sql = "select id, nome from autor;";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
 			preparedStatement.executeQuery();
 			try (ResultSet resultSet = preparedStatement.getResultSet()) {
 
 				while (resultSet.next()) {
-					Editora editora = new Editora();
-					editora.setId(resultSet.getInt("id"));
-					editora.setNome(resultSet.getString("nome"));
-					editoras.add(editora);
+					Autor autor = new Autor();
+					autor.setId(resultSet.getInt("id"));
+					autor.setNome(resultSet.getString("nome"));
+					autores.add(autor);
+					
 				}
 				resultSet.close();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
-
 			preparedStatement.close();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
 		connection.close();
-		return editoras;
+		return autores;
 
-	}
-
-	public void Insert(Editora editora) throws SQLException {
-
-		String sql = "insert into editora (nome) values (?);";
-		try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-
-			preparedStatement.setString(1, editora.getNome());
-			preparedStatement.executeUpdate();
-			preparedStatement.close();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-
-		}
-		connection.close();
 	}
 	
-	public void Update(Editora editora) throws SQLException{
+	public void Insert(Autor autor) throws SQLException{
 		
-		String sql = "update editora set nome=? where id=?;";
+		String sql = "insert into autor (nome) values (?);";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-			
-			preparedStatement.setString(1, editora.getNome());
-			preparedStatement.setInt(2, editora.getId());
+			preparedStatement.setString(1, autor.getNome());
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		} catch (Exception e) {
@@ -79,13 +59,25 @@ public class EditoraDAO {
 		connection.close();
 	}
 	
-	public void Delete(Editora editora) throws SQLException{
+	public void Update(Autor autor) throws SQLException{
 		
-		String sql = "delete from editora where id=?";
-		
+		String sql = "update autor set nome=? where id=?;";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-			
-			preparedStatement.setInt(1, editora.getId());
+			preparedStatement.setString(1, autor.getNome());
+			preparedStatement.setInt(2, autor.getId());
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		connection.close();
+	}
+	
+	public void Delete(Autor autor) throws SQLException{
+		
+		String sql = "delete from autor where id=?;";
+		try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+			preparedStatement.setInt(1, autor.getId());
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		} catch (Exception e) {
