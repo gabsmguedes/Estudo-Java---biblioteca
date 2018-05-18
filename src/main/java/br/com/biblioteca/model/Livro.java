@@ -1,13 +1,29 @@
 package br.com.biblioteca.model;
 
-import java.util.List;
-
 public class Livro {
 
 	private int id;
+	private String nome;
 	private Autor autor;
 	private Editora editora;
+	private int quantidade;
+	
+	
+	public int getQuantidade() {
+		return quantidade;
+	}
 
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	public int getId() {
 		return id;
 	}
@@ -17,6 +33,7 @@ public class Livro {
 	}
 
 	public Autor getAutor() {
+		if(this.autor == null) this.autor = new Autor();
 		return autor;
 	}
 
@@ -25,6 +42,7 @@ public class Livro {
 	}
 
 	public Editora getEditora() {
+		if(this.editora == null) this.editora = new Editora();
 		return editora;
 	}
 
