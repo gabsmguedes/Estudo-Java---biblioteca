@@ -1,5 +1,6 @@
 package br.com.biblioteca.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -8,8 +9,8 @@ public class Pedido {
 	private int id;
 	private Aluno aluno;
 	private int quantidade;
-	private LocalDateTime data_pedido;
-	private LocalDateTime data_devolucao;
+	private LocalDate data_pedido;
+	private LocalDate data_devolucao;
 
 	public int getId() {
 		return id;
@@ -27,23 +28,24 @@ public class Pedido {
 		this.quantidade = quantidade;
 	}
 
-	public LocalDateTime getData_pedido() {
+	public LocalDate getData_pedido() {
 		return data_pedido;
 	}
 
-	public void setData_pedido(LocalDateTime data_pedido) {
+	public void setData_pedido(LocalDate data_pedido) {
 		this.data_pedido = data_pedido;
 	}
 
-	public LocalDateTime getData_devolucao() {
+	public LocalDate getData_devolucao() {
 		return data_devolucao;
 	}
 
-	public void setData_devolucao(LocalDateTime data_devolucao) {
+	public void setData_devolucao(LocalDate data_devolucao) {
 		this.data_devolucao = data_devolucao;
 	}
 
 	public Aluno getAluno() {
+		if(this.aluno == null) this.aluno = new Aluno();
 		return aluno;
 	}
 
