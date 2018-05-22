@@ -14,13 +14,13 @@ import br.com.biblioteca.model.Livro;
 public class LivroDAOTest {
 
 	
-	/*@Test
+	@Test
 	public void testSqlInsertLivro() throws SQLException{
 		
 		Livro livro = new Livro();
-		livro.setNome("teste");
-		livro.getEditora().setId(2);
-		livro.getAutor().setId(2);
+		livro.setNome("Percy Jackson e o Mar de Monstros");
+		livro.getEditora().setId(1);
+		livro.getAutor().setId(1);
 		livro.setQuantidade(10);
 		
 		Connection connection = DataBase.getConexao();
@@ -29,7 +29,7 @@ public class LivroDAOTest {
 		livroDAO.Insert(livro);
 	}
 	
-	@Test
+	/*@Test
 	public void testSqlUpdateLivro() throws SQLException{
 		
 		Livro livro = new Livro();
@@ -45,7 +45,7 @@ public class LivroDAOTest {
 		livroDAO.Update(livro);
 	}*/
 	
-	@Test
+	/*@Test
 	public void testSqlDeleteLivro() throws SQLException{
 		
 		Livro livro = new Livro();
@@ -55,7 +55,7 @@ public class LivroDAOTest {
 		LivroDAO livroDAO = new LivroDAO(connection);
 		
 		livroDAO.Delete(livro);
-	}
+	}*/
 	
 	@Test
 	public void testSqlSelectLivro() throws SQLException {

@@ -5,10 +5,11 @@ import java.util.List;
 public class ItemPedido {
 
 	private Pedido pedido;
-	private List<Livro> livros;
+	private Livro livro;
 	private int quantidade;
 
 	public Pedido getPedido() {
+		if(this.pedido == null) this.pedido = new Pedido();
 		return pedido;
 	}
 
@@ -16,12 +17,13 @@ public class ItemPedido {
 		this.pedido = pedido;
 	}
 
-	public List<Livro> getLivros() {
-		return livros;
+	public Livro getLivro() {
+		if(this.livro == null) this.livro = new Livro();
+		return livro;
 	}
 
-	public void setLivros(List<Livro> livros) {
-		this.livros = livros;
+	public void setLivro(Livro livro) {
+		this.livro = livro;
 	}
 
 	public int getQuantidade() {
