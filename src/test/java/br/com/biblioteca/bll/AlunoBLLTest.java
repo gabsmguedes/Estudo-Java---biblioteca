@@ -17,7 +17,8 @@ public class AlunoBLLTest {
 
 	@Test
 	public void testBllSqlSelect() throws SQLException {
-		AlunoBLL alunoBLL = new AlunoBLL();
+		Connection connection = DataBase.getConexao();
+		AlunoBLL alunoBLL = new AlunoBLL(connection );
 		List<Aluno> alunos = alunoBLL.Select();
 		for (Aluno aluno : alunos) {
 			System.out.println("RA: " + aluno.getRa());
@@ -27,61 +28,64 @@ public class AlunoBLLTest {
 		}
 	}
 
-	@Test
+	/*@Test
 	public void testBllSqlInsertRaAlunoComValorMenorQueDez() throws SQLException {
-
+		Connection connection = DataBase.getConexao();
 		Aluno aluno = new Aluno();
 		aluno.setRa("-1");
 		aluno.setNome("testando bll");
 
-		AlunoBLL alunoBLL = new AlunoBLL();
+		AlunoBLL alunoBLL = new AlunoBLL(connection);
 		alunoBLL.Insert(aluno);
 		System.out.println("Teste Insert");
-	}
+	}*/
 
-	@Test
+	/*@Test
 	public void testBllSqlInsertRaAlunoComValorMaiorQueDez() throws SQLException {
+		Connection connection = DataBase.getConexao();
 		Aluno aluno = new Aluno();
 		aluno.setRa("12345678910");
 		aluno.setNome("testando bll");
 
-		AlunoBLL alunoBLL = new AlunoBLL();
+		AlunoBLL alunoBLL = new AlunoBLL(connection);
 		alunoBLL.Insert(aluno);
 
 		System.out.println("Teste Insert");
-	}
+	}*/
 
-	@Test
+	/*@Test
 	public void testBllSqlInsertNomeAlunoVazio() throws SQLException {
+		Connection connection = DataBase.getConexao();
 		Aluno aluno = new Aluno();
 		aluno.setRa("0123456789");
 		aluno.setNome("");
 
-		AlunoBLL alunoBLL = new AlunoBLL();
+		AlunoBLL alunoBLL = new AlunoBLL(connection);
 		alunoBLL.Insert(aluno);
 
 		System.out.println("Teste Insert");
-	}
+	}*/
 
-	@Test
+	/*@Test
 	public void testBllUpdateAlunoComNomeComValorVazio() throws SQLException {
-
+		Connection connection = DataBase.getConexao();
 		Aluno aluno = new Aluno();
 		aluno.setRa("0123456789");
 		aluno.setNome("Talita Moura Guedes");
 
-		AlunoBLL alunoBLL = new AlunoBLL();
+		AlunoBLL alunoBLL = new AlunoBLL(connection);
 		alunoBLL.Update(aluno);
 		System.out.println("Teste Update");
-	}
+	}*/
 
-	@Test
+	/*@Test
 	public void testBllSqlDeleteAluno() throws SQLException {
+		Connection connection = DataBase.getConexao();
 		Aluno aluno = new Aluno();
 		aluno.setRa("1123456789");
-		AlunoBLL alunoBLL = new AlunoBLL();
+		AlunoBLL alunoBLL = new AlunoBLL(connection);
 		alunoBLL.Delete(aluno);
 		System.out.println("Teste Delete");
-	}
+	}*/
 
 }

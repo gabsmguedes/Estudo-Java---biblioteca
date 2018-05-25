@@ -10,6 +10,11 @@ import br.com.biblioteca.model.Aluno;
 
 public class AlunoBLL {
 	
+	Connection connection = null;
+	public AlunoBLL(Connection connection) {
+		this.connection = connection;
+	}
+	
 	public List<Aluno> Select() throws SQLException{
 		Connection connection = DataBase.getConexao();
 		AlunoDAO alunoDAO = new AlunoDAO(connection);
@@ -18,8 +23,6 @@ public class AlunoBLL {
 
 	public void Insert(Aluno aluno) throws SQLException{
 		
-		Connection connection = DataBase.getConexao();
-		//String ra = aluno.getRa();
 		if(aluno.getRa().length() < 10 || aluno.getRa().length() > 10){
 			System.out.println("Ra não pode ser menor que 10 e nem maior que 10 ou vazio");
 			return;
@@ -33,7 +36,7 @@ public class AlunoBLL {
 	}
 	
 	public void Update(Aluno aluno) throws SQLException{
-		Connection connection = DataBase.getConexao();
+	
 		if(aluno.getRa().length() < 10 || aluno.getRa().length() > 10){
 			System.out.println("Ra não pode ser menor que 10 e nem maior que 10 ou vazio");
 			return;
@@ -47,7 +50,7 @@ public class AlunoBLL {
 	}
 
 	public void Delete(Aluno aluno) throws SQLException {
-		Connection connection = DataBase.getConexao();
+		
 		AlunoDAO alunoDAO = new AlunoDAO(connection);
 		alunoDAO.Delete(aluno);
 	}
