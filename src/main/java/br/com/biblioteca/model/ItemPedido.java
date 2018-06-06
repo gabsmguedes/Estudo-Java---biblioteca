@@ -17,15 +17,6 @@ public class ItemPedido {
 		this.pedido = pedido;
 	}
 
-	public Livro getLivro() {
-		if(this.livro == null) this.livro = new Livro();
-		return livro;
-	}
-
-	public void setLivro(Livro livro) {
-		this.livro = livro;
-	}
-
 	public int getQuantidade() {
 		return quantidade;
 	}
@@ -33,5 +24,15 @@ public class ItemPedido {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+	
+	
 
 }

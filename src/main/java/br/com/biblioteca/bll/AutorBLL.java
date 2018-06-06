@@ -22,7 +22,7 @@ public class AutorBLL {
 	}
 	
 	public void Insert(Autor autor) throws SQLException{
-		if(autor.getNome().length() == 0){
+		if(autor.getNome().isEmpty()){
 			System.out.println("Nome não pode ser vazio!");
 			return;
 		}
@@ -31,7 +31,7 @@ public class AutorBLL {
 	}
 	
 	public void Update(Autor autor) throws SQLException{
-		if(autor.getNome().length() == 0){
+		if(autor.getNome().isEmpty()){
 			System.out.println("Nome não pode ser vazio");
 			return;
 		}

@@ -21,7 +21,7 @@ public class EditoraBLL {
 	
 	public void Insert(Editora editora) throws SQLException{
 		EditoraDAO editoraDAO = new EditoraDAO(connection);
-		if(editora.getNome().length() == 0) {
+		if(editora.getNome().isEmpty()) {
 			System.out.println("Nome não pode ser vazio");
 			return;
 		}
@@ -30,7 +30,7 @@ public class EditoraBLL {
 	
 	public void Update(Editora editora) throws SQLException{
 		EditoraDAO editoraDAO = new EditoraDAO(connection);
-		if(editora.getNome().length() == 0) {
+		if(editora.getNome().isEmpty()) {
 			System.out.println("Nome não pode ser vazio");
 			return;
 		}

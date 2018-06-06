@@ -27,7 +27,7 @@ public class AlunoBLL {
 			System.out.println("Ra não pode ser menor que 10 e nem maior que 10 ou vazio");
 			return;
 		}
-		if(aluno.getNome().length() == 0){
+		if(aluno.getNome().isEmpty()){
 			System.out.println("Nome não pode ser vazio");
 			return;
 		}
@@ -41,7 +41,7 @@ public class AlunoBLL {
 			System.out.println("Ra não pode ser menor que 10 e nem maior que 10 ou vazio");
 			return;
 		}
-		if(aluno.getNome().length() == 0){
+		if(aluno.getNome().isEmpty()){
 			System.out.println("Nome não pode ser vazio");
 			return;
 		}

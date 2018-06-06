@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import br.com.biblioteca.model.ItemPedido;
@@ -56,7 +57,7 @@ public class ItemPedidoDAO {
 		connection.close();
 	}
 	
-	/*public void Update(ItemPedido itemPedido) throws SQLException{
+	public void Update(ItemPedido itemPedido) throws SQLException{
 		String sql = "update item_pedido set id_livro=? where id_pedido=?;";
 		try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
 			preparedStatement.setInt(1, itemPedido.getLivro().getId());
@@ -67,7 +68,7 @@ public class ItemPedidoDAO {
 			e.printStackTrace();
 		}
 		connection.close();
-	}*/
+	}
 	
 	public void DeleteLivro(ItemPedido itemPedido) throws SQLException{
 		String sql = "delete from item_pedido where id_pedido=? and id_livro=?;";
